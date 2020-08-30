@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'site-user-register',
-    '__version' => '0.0.1',
+    '__version' => '0.1.0',
     '__git' => 'git@github.com:getmim/site-user-register.git',
     '__license' => 'MIT',
     '__author' => [
@@ -38,6 +38,10 @@ return [
             'SiteUserRegister\\Library' => [
                 'type' => 'file',
                 'base' => 'modules/site-user-register/library'
+            ],
+            'SiteUserRegister\\Model' => [
+                'type' => 'file',
+                'base' => 'modules/site-user-register/model'
             ]
         ],
         'files' => []
@@ -50,6 +54,16 @@ return [
                 ],
                 'handler' => 'SiteUserRegister\\Controller\\Register::create',
                 'method' => 'GET|POST'
+            ],
+            'siteMeVerify' => [
+                'path' => [
+                    'value' => '/me/verify/(:hash)',
+                    'params' => [
+                        'hash' => 'any'
+                    ]
+                ],
+                'handler' => 'SiteUserRegister\\Controller\\Register::verify',
+                'method' => 'GET'
             ]
         ]
     ],
@@ -73,7 +87,7 @@ return [
                     'label' => 'Fullname',
                     'type' => 'text',
                     'rules' => [
-                        'required' => true,
+                        'required' => TRUE,
                         'empty' => FALSE
                     ]
                 ],
@@ -88,6 +102,30 @@ return [
                             'min' => 6
                         ]
                     ]
+                ]
+            ]
+        ]
+    ],
+    'libFormatter' => [
+        'formats' => [
+            'user-verification' => [
+                'id' => [
+                    'type' => 'number'
+                ],
+                'user' => [
+                    'type' => 'user'
+                ],
+                'hash' => [
+                    'type' => 'text'
+                ],
+                'expires' => [
+                    'type' => 'date'
+                ],
+                'updated' => [
+                    'type' => 'date'
+                ],
+                'created' => [
+                    'type' => 'date'
                 ]
             ]
         ]
