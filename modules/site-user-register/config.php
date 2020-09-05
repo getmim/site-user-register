@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'site-user-register',
-    '__version' => '0.1.0',
+    '__version' => '1.0.0',
     '__git' => 'git@github.com:getmim/site-user-register.git',
     '__license' => 'MIT',
     '__author' => [
