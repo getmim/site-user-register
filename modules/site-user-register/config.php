@@ -38,10 +38,6 @@ return [
             'SiteUserRegister\\Library' => [
                 'type' => 'file',
                 'base' => 'modules/site-user-register/library'
-            ],
-            'SiteUserRegister\\Model' => [
-                'type' => 'file',
-                'base' => 'modules/site-user-register/model'
             ]
         ],
         'files' => []
@@ -54,16 +50,6 @@ return [
                 ],
                 'handler' => 'SiteUserRegister\\Controller\\Register::create',
                 'method' => 'GET|POST'
-            ],
-            'siteMeVerify' => [
-                'path' => [
-                    'value' => '/me/verify/(:hash)',
-                    'params' => [
-                        'hash' => 'any'
-                    ]
-                ],
-                'handler' => 'SiteUserRegister\\Controller\\Register::verify',
-                'method' => 'GET'
             ]
         ]
     ],
@@ -102,30 +88,6 @@ return [
                             'min' => 6
                         ]
                     ]
-                ]
-            ]
-        ]
-    ],
-    'libFormatter' => [
-        'formats' => [
-            'user-verification' => [
-                'id' => [
-                    'type' => 'number'
-                ],
-                'user' => [
-                    'type' => 'user'
-                ],
-                'hash' => [
-                    'type' => 'text'
-                ],
-                'expires' => [
-                    'type' => 'date'
-                ],
-                'updated' => [
-                    'type' => 'date'
-                ],
-                'created' => [
-                    'type' => 'date'
                 ]
             ]
         ]
